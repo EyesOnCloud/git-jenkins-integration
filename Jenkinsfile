@@ -8,7 +8,7 @@ pipeline {
             steps {
                 // Use GitHub credentials to clone the repository
                 git branch: 'master', 
-                    url: 'https://github.com/EyesOnCloud/python-jenkins-integration.git',
+                    url: 'https://github.com/EyesOnCloud/git-jenkins-integration.git',
                     credentialsId: 'github-credentials'
             }
         }
