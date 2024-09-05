@@ -33,6 +33,8 @@ pipeline {
             steps {
                 script {
                     sh 'python3 -m unittest discover'
+                    // Execute test_main.py to see custom test output in the console
+                    sh 'python3 test_main.py'
                 }
             }
         }
