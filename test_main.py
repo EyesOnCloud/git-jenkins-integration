@@ -1,12 +1,16 @@
 from main import hello
 
 def test_hello():
+    expected = "Hello, Jenkins! Version 2.0"
     result = hello()
-    if result == "Hello, Jenkins!":
-        print("Test passed: Hello, Jenkins!")
+    
+    if result == expected:
+        print(f"Test passed: {result}")
     else:
-        print(f"Test failed: Expected 'Hello, Jenkins!' but got '{result}'")
+        print(f"Test failed: Expected {expected}, but got {result}")
 
 if __name__ == '__main__':
-    test_hello()
+     print(test_hello())
+
+
 
