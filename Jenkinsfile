@@ -7,7 +7,7 @@ pipeline {
         stage('Clone Repository') {
             steps {
                 git branch: 'master',
-                    url: 'git@github.com:EyesOnCloud/repository.git',
+                    url: 'git@github.com:EyesOnCloud/git-jenkins-integration.git',
                     credentialsId: 'github-cred'
             }
         }
