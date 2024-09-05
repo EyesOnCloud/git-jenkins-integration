@@ -1,15 +1,14 @@
 pipeline {
     agent any
     environment {
-        GIT_CREDENTIALS = credentials('github-credentials') // Add the ID of your GitHub credentials
+        GIT_CREDENTIALS = credentials('github-cred') // Your GitHub credentials
     }
     stages {
         stage('Clone Repository') {
             steps {
-                // Use GitHub credentials to clone the repository
-                git branch: 'master', 
-                    url: 'https://github.com/EyesOnCloud/git-jenkins-integration.git',
-                    credentialsId: 'github-credentials'
+                git branch: 'master',
+                    url: 'git@github.com:EyesOnCloud/repository.git',
+                    credentialsId: 'github-cred'
             }
         }
         stage('Set Up Python Environment') {
@@ -32,7 +31,6 @@ pipeline {
         stage('Run Tests') {
             steps {
                 script {
-                    sh 'python3 -m unittest discover'
                     // Execute test_main.py to see custom test output in the console
                     sh 'python3 test_main.py'
                 }
@@ -51,3 +49,4 @@ pipeline {
         }
     }
 }
+
