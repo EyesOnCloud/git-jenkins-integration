@@ -1,16 +1,15 @@
 pipeline {
     agent any
     environment {
-        // Replace 'ssh-git-credentials' with your actual Jenkins credentials ID for the SSH key
-        GIT_SSH_CREDENTIALS = credentials('git-credentials')
+        GIT_CREDENTIALS = credentials('github-credentials') // Add the ID of your GitHub credentials
     }
     stages {
         stage('Clone Repository') {
             steps {
-                // Use SSH credentials to clone the repository
+                // Use GitHub credentials to clone the repository
                 git branch: 'master', 
-                    url: 'git@github.com:EyesOnCloud/git-jenkins-integration.git',
-                    credentialsId: 'git-credentials'
+                    url: 'https://github.com/EyesOnCloud/git-jenkins-integration.git',
+                    credentialsId: 'github-credentials'
             }
         }
         stage('Set Up Python Environment') {
