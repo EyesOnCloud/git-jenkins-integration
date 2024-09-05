@@ -1,9 +1,15 @@
 pipeline {
     agent any
+    environment {
+        GIT_CREDENTIALS = credentials('github-credentials') // Add the ID of your GitHub credentials
+    }
     stages {
         stage('Clone Repository') {
             steps {
-                git branch: 'master', url: 'https://github.com/EyesOnCloud/git-jenkins-integration.git'
+                // Use GitHub credentials to clone the repository
+                git branch: 'master', 
+                    url: 'https://github.com/EyesOnCloud/python-jenkins-integration.git',
+                    credentialsId: 'github-credentials'
             }
         }
         stage('Set Up Python Environment') {
